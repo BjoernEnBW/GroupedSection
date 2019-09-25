@@ -1,11 +1,15 @@
 import XCTest
-@testable import GroupedSection
+import GroupedSection
 
 final class GroupedSectionTests: XCTestCase {
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-//        XCTAssertEqual(GroupedSection().text, "Hello, World!")
+        
+        let names = ["Alice", "Bob", "Agathe"]
+        
+        let sections = GroupedSection.group(names) {
+            String($0.first!)
+        }
+        
+        XCTAssertEqual(2, sections.count)
     }
 }
